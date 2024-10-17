@@ -23,6 +23,10 @@ class HomeViewModel: ObservableObject {
         Fitness(id: 2, title: "Running", image: "figure.run", duration: "26 mins", date: "Aug 5", calories: "342 kCal", tintColor: .purple)
     ]
     
+    var calories: Int = 10
+    var activeMinutes: Int = 52
+    var standHours: Int = 5
+    
     init(){
         Task{
             do{
@@ -30,15 +34,15 @@ class HomeViewModel: ObservableObject {
                 healthManager.fetchTodayCaloriesBurned { result in
                     switch result{
                         case .success(let success):
-                            print(success)
+                            print("Burrned \(success) calories")
                     case .failure(let failure):
                         print(failure.localizedDescription)
                     }
                 }
                 healthManager.fetchStandHours { result in
                     switch result{
-                        case .success(let success):
-                            print(success)
+                    case .success(let success):
+                            print("Standing hours \(success)")
                     case .failure(let failure):
                         print(failure.localizedDescription)
                     }

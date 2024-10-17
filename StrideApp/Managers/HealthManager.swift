@@ -36,7 +36,7 @@ class HealthManager {
     
     func requestHealthKitAccess() async throws{
         let calories = HKQuantityType(.activeEnergyBurned)
-        let exercise = HKQuantityType(.appleExerciseTime)
+        let exercise = HKQuantityType(.appleExerciseTime)   
         let stand = HKCategoryType(.appleStandHour)
         let healthTypes: Set = [calories,exercise,stand]
 
@@ -53,7 +53,7 @@ class HealthManager {
                 return
             }
             let calorieCount = quantity.doubleValue(for: .kilocalorie())
-            completion(.success(calorieCount))
+            completion(.success(calorieCount.rounded()))
                            
 
         }
@@ -78,19 +78,21 @@ class HealthManager {
 
     }
     
-    func fetchStandHours(completion: @escaping(Result<Double, Error>) -> Void){
-        let stand = HKQuantityType(.appleStandTime)
+    func fetchStandHours(completion: @escaping(Result<Int, Error>) -> Void){
+        let stand = HKCategoryType(.appleStandHour)
         let predicate = HKQuery.predicateForSamples(withStart: .startOfDay, end: Date())
-        let query = HKSampleQuery(sampleType: stand, predicate: predicate, limit: HKObjectQueryNoLimit, sortDescriptors: nil) {_, results, error in
-                guard let samples = results as? [HKCategorySample], error == nil else {
+        let query = HKSampleQuery(sampleType: stand, predicate: predicate, limit: HKObjectQueryNoLimit, 
+                sortDescriptors: nil) {_, results, error in
+            guard let samples = results as? [HKCategorySample], error == nil else {
                 completion(.failure(NSError()))
                 return
+                
             }
             
             print(samples)
             print(samples.map({$0.value}))
-            
-            completion(.success(2.0))
+            let standCount = samples.filter({ $0.value == 0 }).count
+            completion(.success(standCount))
             
         }
         healthStore.execute(query)

@@ -27,7 +27,7 @@ struct HomeView: View {
                                 .font(.callout)
                                 .bold()
                                 .foregroundStyle(.red)
-                            Text("120 kcal")
+                            Text("\(viewModel.calories) kcal")
                                 .bold()
                         }
                         .padding(.bottom)
@@ -36,7 +36,7 @@ struct HomeView: View {
                                 .font(.callout)
                                 .bold()
                                 .foregroundStyle(.green)
-                            Text("52 mins")
+                            Text("\(viewModel.activeMinutes) min(s)")
                                 .bold()
                         }
                         .padding(.bottom)
@@ -46,7 +46,7 @@ struct HomeView: View {
                                 .font(.callout)
                                 .bold()
                                 .foregroundStyle(.blue)
-                            Text("8 hours")
+                            Text("\(viewModel.standHours) hour(s)")
                                 .bold()
                         }
                         
