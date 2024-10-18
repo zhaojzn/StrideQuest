@@ -46,5 +46,5 @@ struct FitnessView: View {
 }
 
 #Preview {
-    FitnessView(fitness: Fitness(id: 0, title: "Running", image: "figure.run", duration: "24 mins", date: "Aug 3", calories: "342 kCal", tintColor: .green))
+    FitnessView(fitness: Fitness(title: "Running", image: "figure.run", duration: "24 mins", date: "Aug 3", calories: "342 kCal", tintColor: .green))
 }

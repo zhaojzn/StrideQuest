@@ -24,11 +24,12 @@ struct ActivityBoxView: View {
                         Text(activity.subtitle)
                             .font(.caption)
                     }
+                    .padding()
 
                     Spacer()
                     
                     Image(systemName: activity.image)
-                        .foregroundColor(activity.tintColor)
+                        .foregroundColor(activity.tintColor).padding()
                 }
                 Text(activity.amount)
                     .font(.title)
@@ -44,5 +45,5 @@ struct ActivityBoxView: View {
 }
 
 #Preview {
-    ActivityBoxView(activity: Activity(id: 0, title: "Today steps", subtitle: "Goal 10,000", image: "figure.run", tintColor: .green, amount: "6,123"))
+    ActivityBoxView(activity: Activity(title: "Today steps", subtitle: "Goal 10,000", image: "figure.run", tintColor: .green, amount: "6,123"))
 }

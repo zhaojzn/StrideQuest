@@ -25,6 +25,7 @@
 		6BE6C1182CC046C3000E6537 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BE6C1172CC046C3000E6537 /* HomeViewModel.swift */; };
 		6BE6C11E2CC05DB6000E6537 /* Activity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BE6C11D2CC05DB6000E6537 /* Activity.swift */; };
 		6BE6C1202CC05DED000E6537 /* Fitness.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BE6C11F2CC05DED000E6537 /* Fitness.swift */; };
+		6BFD4E1C2CC3186E004623EC /* HKActivityTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BFD4E1B2CC3186E004623EC /* HKActivityTypes.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -68,6 +69,7 @@
 		6BE6C1172CC046C3000E6537 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 		6BE6C11D2CC05DB6000E6537 /* Activity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Activity.swift; sourceTree = "<group>"; };
 		6BE6C11F2CC05DED000E6537 /* Fitness.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Fitness.swift; sourceTree = "<group>"; };
+		6BFD4E1B2CC3186E004623EC /* HKActivityTypes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HKActivityTypes.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -118,6 +120,7 @@
 		6B4AB75B2CBEF065005CF858 /* StrideApp */ = {
 			isa = PBXGroup;
 			children = (
+				6BFD4E1A2CC31864004623EC /* Utils */,
 				6B8673592CC062A300141BBB /* Info.plist */,
 				6B8673582CC0618200141BBB /* Managers */,
 				6B8673552CC0616400141BBB /* StrideApp.entitlements */,
@@ -210,6 +213,14 @@
 				6BE6C1172CC046C3000E6537 /* HomeViewModel.swift */,
 			);
 			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		6BFD4E1A2CC31864004623EC /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				6BFD4E1B2CC3186E004623EC /* HKActivityTypes.swift */,
+			);
+			path = Utils;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -349,6 +360,7 @@
 				6BE6C1182CC046C3000E6537 /* HomeViewModel.swift in Sources */,
 				6BB7ACF12CBF46E2006CD363 /* LoginView.swift in Sources */,
 				6BB7ACEE2CBF3207006CD363 /* FitnessView.swift in Sources */,
+				6BFD4E1C2CC3186E004623EC /* HKActivityTypes.swift in Sources */,
 				6B4AB78B2CBEF26D005CF858 /* HomeView.swift in Sources */,
 				6B4AB78D2CBEF2FF005CF858 /* HistoricDataView.swift in Sources */,
 				6B4AB75D2CBEF065005CF858 /* StrideAppApp.swift in Sources */,

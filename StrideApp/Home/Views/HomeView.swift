@@ -21,13 +21,13 @@ struct HomeView: View {
                     .padding()
                 HStack{
                     Spacer()
-                    VStack(){
+                    VStack(alignment: .leading){
                         VStack(alignment: .leading, spacing: 8){
                             Text("Calories")
                                 .font(.callout)
                                 .bold()
                                 .foregroundStyle(.red)
-                            Text("\(viewModel.calories) kcal")
+                            Text("\(String(format: "%.1f", viewModel.calories)) kcal")
                                 .bold()
                         }
                         .padding(.bottom)
@@ -36,7 +36,7 @@ struct HomeView: View {
                                 .font(.callout)
                                 .bold()
                                 .foregroundStyle(.green)
-                            Text("\(viewModel.activeMinutes) min(s)")
+                            Text("\(String(format: "%.1f", viewModel.activeMinutes)) minute(s)")
                                 .bold()
                         }
                         .padding(.bottom)
@@ -55,7 +55,7 @@ struct HomeView: View {
                     Spacer()
                     
                     ZStack{
-                        ProgressCircleView(progress: .constant(125), goal: 200, color: .red, width: 20)
+                        ProgressCircleView(progress: .constant(20), goal: 250, color: .red, width: 20)
                         ProgressCircleView(progress: .constant(70), goal: 200, color: .green, width: 20)
                             .padding(20)
                         ProgressCircleView(progress: .constant(20), goal: 200, color: .blue, width: 20)
@@ -94,14 +94,17 @@ struct HomeView: View {
 
             }
             .border(/*@START_MENU_TOKEN@*/Color.black/*@END_MENU_TOKEN@*/)
-            LazyVGrid(columns: Array(repeating: GridItem(spacing: 20), count: 2)){
-                ForEach(viewModel.mockActivites, id: \.id) { activity in
-                    ActivityBoxView(activity: activity)
-                }
+            if !viewModel.activites.isEmpty {
+                LazyVGrid(columns: Array(repeating: GridItem(spacing: 20), count: 2)){
+                    ForEach(viewModel.activites, id: \.title) { activity in
+                        ActivityBoxView(activity: activity)
+                    }
 
+                }
+                .border(/*@START_MENU_TOKEN@*/Color.black/*@END_MENU_TOKEN@*/)
+                .padding()
             }
-            .border(/*@START_MENU_TOKEN@*/Color.black/*@END_MENU_TOKEN@*/)
-            .padding()
+ 
             HStack{
                 Text("Recent Activity")
                     .font(.title2)
@@ -124,8 +127,8 @@ struct HomeView: View {
             .border(/*@START_MENU_TOKEN@*/Color.black/*@END_MENU_TOKEN@*/)
 
             LazyVStack(spacing: 50){
-                ForEach(viewModel.mockRecent, id: \.id) {fitness in
-                    FitnessView(fitness: fitness).border(/*@START_MENU_TOKEN@*/Color.black/*@END_MENU_TOKEN@*/)
+                ForEach(viewModel.workouts, id: \.date) {fitness in
+                    FitnessView(fitness: fitness).border(Color.black)
                 }
             }
             .padding()

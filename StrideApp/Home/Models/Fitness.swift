@@ -9,7 +9,6 @@ import SwiftUI
 
 
 struct Fitness {
-    let id: Int
     let title: String
     let image: String
     let duration: String
